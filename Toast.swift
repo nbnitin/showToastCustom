@@ -1,11 +1,9 @@
 //
 //  showToast.swift
-//  EazyCarCare
 //
 //  Created by Nitin Bhatia on 14/06/17.
 //  Copyright © 2017 Nitin Bhatia. All rights reserved.
 //
-
 import UIKit
 
 class Toast{
@@ -49,7 +47,7 @@ class Toast{
         
         let size = CGSize(width: 250, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-        let estimatedFrame = NSString(string: message).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17)], context: nil)
+        let estimatedFrame = NSString(string: message).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)], context: nil)
         
         
         
@@ -71,7 +69,7 @@ class Toast{
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(0), execute: { () -> Void in
             
-            UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 toastLabel.alpha = 1.0
                 
             })
@@ -93,7 +91,7 @@ class Toast{
         
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(yourDelay), execute: { () -> Void in
-            UIView.animate(withDuration: yourDuration, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            UIView.animate(withDuration: yourDuration, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 toastLabel.alpha = 0.0
                 
             })
